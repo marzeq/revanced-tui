@@ -53,9 +53,11 @@ just patch FILE_PATH PACKAGE_NAME
 
 The upside of manually downloading the integrations and patches is that you can use your own custom versions, like [crimera/pico](https://github.com/crimera/pico).
 
-## Missing features
+## Missing/planned features
 
 - [ ] Version protection (stopping you from patching an app with a patch for a different version of the app) \[unsure if I will ever implement this\]
+- [ ] Separate downloading custom integrations and patches from the official ones
+- [ ] Checking updates for official patches and integrations
 
 Suggest more features in the issues tab (see [Issues & Contributing](#issues--contributing)).
 
