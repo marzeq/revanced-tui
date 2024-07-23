@@ -16,7 +16,7 @@ download-patches PATCHES_URL: setup-artifacts
 
 download CLI_URL INTEGRATIONS_URL PATCHES_URL: (download-cli CLI_URL) (download-integrations INTEGRATIONS_URL) (download-patches PATCHES_URL)
 
-make-patches-file:
+make-patches-file: setup-artifacts
   python scripts/make_patches_file.py
 
 select-patches PACKAGE_NAME: make-patches-file
