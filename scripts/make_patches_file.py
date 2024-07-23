@@ -44,6 +44,8 @@ output = list_patches()
 output = sanitise_output(output)
 patches = [parse_patch(patch) for patch in output]
 
+make_options_file()
+
 with open("artifacts/patches.json", "w") as f:
     json.dump(patches, f, indent=4)
 
