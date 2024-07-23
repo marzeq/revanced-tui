@@ -22,14 +22,6 @@ This is an example of how to use this script:
 git clone https://github.com/marzeq/revanced-tui
 cd revanced-tui
 
-# download revanced files
-
-just download-cli CLI_URL # for example: just download-cli https://github.com/ReVanced/revanced-cli/releases/download/v4.6.0/revanced-cli-4.6.0-all.jar
-just download-integrations INTEGRATIONS_URL # for example: just download-integrations https://github.com/ReVanced/revanced-integrations/releases/download/v1.11.1/revanced-integrations-1.11.1.apk
-just download-patches PATCHES_URL # for example: just download-patches https://github.com/ReVanced/revanced-patches/releases/download/v4.11.0/revanced-patches-4.11.0.jar
-
-# run the script
-
 just select-and-patch FILE_PATH PACKAGE_NAME # for example: just select-and-patch youtube.apk com.google.android.youtube
 ```
 
@@ -49,15 +41,22 @@ Then, later down the line, you can put these files back in the `artifacts` direc
 just patch FILE_PATH PACKAGE_NAME
 ```
 
-### Custom integrations and patches
+### Custom integrations, patches
+
+You can download custom integrations and patches by using the `download-custom-integrations` and `download-custom-patches` commands:
+
+```bash
+just download-custom-integrations INTEGRATIONS_FILE_URL
+just download-custom-patches PATCHES_FILE_URL
+```
 
 The upside of manually downloading the integrations and patches is that you can use your own custom versions, like [crimera/pico](https://github.com/crimera/pico).
 
 ## Missing/planned features
 
 - [ ] Version protection (stopping you from patching an app with a patch for a different version of the app) \[unsure if I will ever implement this\]
-- [ ] Separate downloading custom integrations and patches from the official ones
-- [ ] Checking updates for official patches and integrations
+- [x] Separate downloading custom integrations and patches from the official ones
+- [x] Checking updates for official patches and integrations
 
 Suggest more features in the issues tab (see [Issues & Contributing](#issues--contributing)).
 
