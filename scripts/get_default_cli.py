@@ -3,6 +3,8 @@
 import requests
 import sys
 
+from common import download
+
 response = requests.get("https://api.github.com/repos/revanced/revanced-cli/tags")
 
 if response.status_code != 200:
@@ -42,15 +44,4 @@ if cli_version == latest_tag:
 
 cli_url = f"https://github.com/ReVanced/revanced-cli/releases/download/v{latest_tag}/revanced-cli-{latest_tag}-all.jar"
 
-with open("artifacts/cli_version", "w") as file:
-    file.write(latest_tag)
-
-response = requests.get(cli_url)
-
-if response.status_code != 200:
-    print("Error: Failed to download the latest version")
-    sys.exit(1)
-
-with open("artifacts/cli.jar", "wb") as file:
-    file.write(response.content)
-
+download(cli_url, "artifacts/revanced-cli.jar")

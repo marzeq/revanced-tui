@@ -3,6 +3,8 @@
 import requests
 import sys
 
+from common import download
+
 response = requests.get("https://api.revanced.app/v3/patches/latest")
 
 if response.status_code != 200:
@@ -65,25 +67,5 @@ if patches_url is None or integrations_url is None:
     print("Error: Malformed JSON response")
     sys.exit(1)
 
-
-with open("artifacts/patches_integrations_version", "w") as file:
-    file.write(json["version"])
-
-
-response = requests.get(patches_url)
-if response.status_code != 200:
-    print("Error: Failed to download the patches")
-    sys.exit(1)
-
-with open("artifacts/patches.jar", "wb") as file:
-    file.write(response.content)
-
-
-response = requests.get(integrations_url)
-if response.status_code != 200:
-    print("Error: Failed to download the integrations")
-    sys.exit(1)
-
-with open("artifacts/integrations.apk", "wb") as file:
-    file.write(response.content)
-
+download(patches_url, "artifacts/patches.jar")
+download(integrations_url, "artifacts/integrations.apk")

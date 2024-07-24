@@ -2,16 +2,18 @@
 
 A simple TUI alternative for [ReVanced](https://revanced.app/). Allows you to select each patch you want, configure their options and patch an app all in your terminal.
 
-Note: This project is designed only with Linux in mind. It may work in macOS, and it definitely won't work in Windows.
+Note: This project is designed only with Linux in mind. Though, it may work in macOS. Usage on Windows is outlined in the [Usage on Windows](#usage-on-windows) section.
 
 ## Requirements
 
-- dialog
-- curl
-- [just](https://github.com/casey/just)
+- `dialog` command (`cdialog` is the most common implementation)
+- `curl`
+- [`just`](https://github.com/casey/just)
 - Latest python version
 - pip
     * [pythondialog](https://pypi.org/project/pythondialog/)
+    * [requests](https://pypi.org/project/requests/)
+    * [tqdm](https://pypi.org/project/tqdm/)
 - Java >= 17
 
 ## Usage
@@ -24,8 +26,6 @@ cd revanced-tui
 
 just select-and-patch FILE_PATH PACKAGE_NAME # for example: just select-and-patch youtube.apk com.google.android.youtube
 ```
-
-You don't have to re-download the files every time you want to patch an app. But make sure you do so every once in a while.
 
 If you want to only select the patches and not patch the app, you can use the `select-patches` command like this:
 
@@ -41,7 +41,9 @@ Then, later down the line, you can put these files back in the `artifacts` direc
 just patch FILE_PATH PACKAGE_NAME
 ```
 
-### Custom integrations, patches
+Every time you run either of these commands, the script will check for updates for the CLI, integrations and patches and download new versions if necessary.
+
+### Custom integrations, patches and CLI
 
 You can download custom integrations and patches by using the `download-custom-integrations` and `download-custom-patches` commands:
 
@@ -51,6 +53,20 @@ just download-custom-patches PATCHES_FILE_URL
 ```
 
 The upside of manually downloading the integrations and patches is that you can use your own custom versions, like [crimera/pico](https://github.com/crimera/pico).
+
+If for some reason you want to install a custom version of the CLI, you can use the `download-custom-cli` command:
+
+```bash
+just download-custom-cli CLI_FILE_URL
+```
+
+NOTE: Installing custom versions of the CLI, integrations and patches will disable the automatic update checking. If you ever want to re-enable it, you need to delete the `artifacts/cli_version` and/or `artifacts/patches_integrations_version` files.
+
+### Usage on Windows
+
+I strongly recommend using WSL to run this just like you would on Linux.
+
+Alternatively, you can run the Python scripts in the scripts folder directly. But you will somehow have to figure out how to install dialog on Windows (you're on your own with that).
 
 ## Missing/planned features
 
