@@ -69,3 +69,6 @@ if patches_url is None or integrations_url is None:
 
 download(patches_url, "artifacts/patches.jar")
 download(integrations_url, "artifacts/integrations.apk")
+
+with open("artifacts/patches_integrations_version", "w") as file:
+    file.write(json["version"])
