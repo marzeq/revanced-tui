@@ -44,7 +44,7 @@ if cli_version == latest_tag:
 
 cli_url = f"https://github.com/ReVanced/revanced-cli/releases/download/v{latest_tag}/revanced-cli-{latest_tag}-all.jar"
 
-download(cli_url, "artifacts/revanced-cli.jar")
+download(cli_url, "artifacts/cli.jar")
 
 with open("artifacts/cli_version", "w") as file:
     file.write(latest_tag)
