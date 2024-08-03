@@ -52,7 +52,7 @@ just download-custom-integrations INTEGRATIONS_FILE_URL
 just download-custom-patches PATCHES_FILE_URL
 ```
 
-The upside of manually downloading the integrations and patches is that you can use your own custom versions, like [crimera/pico](https://github.com/crimera/pico).
+The upside of manually downloading the integrations and patches is that you can use your own custom versions, like [crimera/piko](https://github.com/crimera/piko).
 
 If for some reason you want to install a custom version of the CLI, you can use the `download-custom-cli` command:
 
